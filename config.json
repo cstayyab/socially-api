@@ -1,0 +1,5 @@
+﻿{
+    "connectionString": "mongodb+srv://socially_admin_user:FX4BU6QlbHlApzqv@socially.lxevu.mongodb.net/socially?retryWrites=true&w=majority",
+    "secret": "USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
+    "imagebb": "d11dac64aa66f23dab08c0aead7ffb7a"
+}
