@@ -10,13 +10,12 @@ router.get('/:id', getById);
 async function create(req, res, next) {
     if('image' in req.files) {
         const file = req.files.image;
-        console.log(file);
         if(file.mimetype.startsWith('image/')) {
             const data = fs.readFileSync(file.tempFilePath);
             console.log(data.length);
             attachmentService.create({image: data.toString('base64')}, req.user.sub)
                 .then((aId) => res.json({attachmentId: aId}))
-                .catch(err => next(err));
+                .catch(err => { console.log(err); next(err)});
         }
     }
 }

@@ -33,7 +33,9 @@ async function create(postParam, userId) {
         postData['media'] = [attachment];
     }
     
-    await new Post(postData).save();
+    let newPost = new Post(postData);
+    await newPost.save();
+    return newPost;
 
 }
 
@@ -50,6 +52,7 @@ async function update(id, userId, postParam) {
             post.media = [attachment];
         }
         await post.save();
+        return post;
     } else {
         throw 'You are not authorized to update this post';
     }

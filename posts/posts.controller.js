@@ -25,13 +25,13 @@ function getById(req, res, next) {
 
 function create(req, res, next) {
     postService.create(req.body, req.user.sub)
-        .then(() => res.json({}))
+        .then((post) => res.json(post))
         .catch(err => next(err));
 }
 
 function update(req, res, next) {
     postService.update(req.params.id, req.user.sub, req.body)
-        .then(() => res.json({}))
+        .then((post) => res.json(post))
         .catch(err => next(err));
 }
 

@@ -25,6 +25,7 @@
         "mongodb": "^3.7.3",
         "mongoose": "^5.13.14",
         "mongoose-autopopulate": "^0.16.0",
+        "mongoose-type-email": "^1.1.2",
         "rootpath": "^0.1.2"
     },
     "devDependencies": {

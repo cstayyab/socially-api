@@ -2,7 +2,7 @@ module.exports = errorHandler;
 
 function errorHandler(err, req, res, next) {
     if (process.env.NODE_ENV !== 'production') {
-        console.trace(err);
+        // console.trace(err);
     }
     let errJson = {success: false, message: typeof (err) === 'string' ? err : err.message};
     if (typeof (err) === 'string') {

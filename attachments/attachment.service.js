@@ -26,8 +26,13 @@ async function create(attachmentParam, userId) {
             },
             data: formData
         };
-
-        response = await axios(reqConfig)
+        let response = null;
+        try {
+            response = await axios(reqConfig)
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
 
         let resp = response.data;
         if (resp.success) {
@@ -39,6 +44,9 @@ async function create(attachmentParam, userId) {
             })
             await attachment.save();
             return attachment._id
+        } else {
+            console.log(resp);
+            throw 'Error uploading image';
         }
 
     }
