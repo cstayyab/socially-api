@@ -3,8 +3,8 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
-const jwt =  require('_helpers/jwt');
-const errorHandler = require('_helpers/error-handler');
+const jwt =  require('./_helpers/jwt');
+const errorHandler = require('./_helpers/error-handler');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

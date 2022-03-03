@@ -1,5 +1,5 @@
 const req = require('express/lib/request');
-const db = require('_helpers/db');
+const db = require('../_helpers/db');
 const Post = db.Post;
 const userService = require('../users/user.service');
 const attachmentService = require('../attachments/attachment.service');
