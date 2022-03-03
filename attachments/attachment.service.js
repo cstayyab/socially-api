@@ -1,5 +1,5 @@
 const config = require('config.json') || {};
-const db = require('_helpers/db');
+const db = require('../_helpers/db');
 var axios = require('axios');
 var FormData = require('form-data');
 const Attachment = db.Attachment;
