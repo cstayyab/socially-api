@@ -7,6 +7,7 @@
         "type": "git",
         "url": "https://github.com/cstayyab/socially.git"
     },
+    "homepage": "https://socially-backend.herokuapp.com/",
     "scripts": {
         "start": "node ./server.js",
         "start:dev": "nodemon ./server.js"
