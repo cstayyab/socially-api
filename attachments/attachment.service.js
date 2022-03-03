@@ -1,4 +1,4 @@
-const config = require('config.json');
+const config = require('config.json') || {};
 const db = require('_helpers/db');
 var axios = require('axios');
 var FormData = require('form-data');
@@ -20,7 +20,7 @@ async function create(attachmentParam, userId) {
 
         var reqConfig = {
             method: 'post',
-            url: `https://api.imgbb.com/1/upload?key=${config.imagebb}`,
+            url: `https://api.imgbb.com/1/upload?key=${process.env.IMAGEBB || config.imagebb}`,
             headers: {
                 ...formData.getHeaders()
             },
