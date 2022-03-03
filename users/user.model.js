@@ -8,7 +8,8 @@ const schema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     createdDate: { type: Date, default: Date.now },
-    role: { type: String, required: true, default: 'user', enum: ['user', 'admin'] }
+    role: { type: String, required: true, default: 'user', enum: ['user', 'admin'] },
+    profilePicture: {type: Schema.Types.ObjectId, ref: 'Attachment', required: false}
 });
 
 schema.virtual('autoName').get(function () {
@@ -22,8 +23,10 @@ schema.set('toJSON', {
         delete ret._id;
         delete ret.hash;
         delete ret.createdDate;
+        if(ret.profilePicture && ret.profilePicture.data) {
+            delete ret.profilePicture.data.delete_url;
+        }
     }
 });
 
 module.exports = mongoose.model('User', schema)
-module.exports.schema = schema;

@@ -5,6 +5,7 @@ const fs = require('fs');
 
 // router
 router.post('/', create);
+router.get('/:id', getById);
 
 async function create(req, res, next) {
     if('image' in req.files) {
@@ -21,7 +22,7 @@ async function create(req, res, next) {
 }
 function getById(req, res, next) {
     attachmentService.getById(req.params.id)
-        .then(attachment => attachmentt ? res.json(attachment) : res.sendStatus(404))
+        .then(attachment => attachment ? res.json(attachment) : res.sendStatus(404))
         .catch(err => next(err));
 }
 

@@ -44,9 +44,13 @@ function getById(req, res, next) {
 }
 
 function update(req, res, next) {
-    userService.update(req.params.id, req.body)
-        .then(() => res.json({}))
-        .catch(err => next(err));
+    if(req.user.sub === req.params.id || req.user.role === 'admin') {
+        userService.update(req.params.id, req.body)
+            .then((updatedUser) => res.json(updatedUser))
+            .catch(err => next(err));
+    } else {
+        throw 'Forbidden';
+    }
 }
 
 function _delete(req, res, next) {
